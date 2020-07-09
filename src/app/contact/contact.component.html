@@ -1,0 +1,36 @@
+<div class="w3-content w3-padding-large w3-margin-top" id="portfolio">
+
+<div class="w3-light-grey w3-padding-large w3-padding-32 w3-margin-top" id="contact">
+  <h3 class="w3-center">Contact</h3>
+  <hr>
+  <p>The contact details are saved and will contact you soon...!</p>
+  <form [formGroup]="ourForm">
+    <div class="w3-section">
+      <label for="fullName">Name</label>
+      <input class="w3-input w3-border" type="text" required name="Name" name="Full Name"
+       id="fullName" formControlName="fullName" required>
+       <div *ngIf="ourForm.get('fullName').touched && ourForm.get('fullName').errors?.required">
+          <span class="helper-text">Enter your name</span>
+       </div>
+    </div>
+    <div class="w3-section">
+      <label for="email">Email</label>
+      <input class="w3-input w3-border" type="Email" required name="Email" name="Email"
+      id="email" formControlName="email" required>
+      <div *ngIf="ourForm.get('email').touched && ourForm.get('email').errors?.required">
+        <span class="helper-text">Enter your Email Address</span>
+     </div>
+     <div *ngIf="ourForm.get('email').touched && ourForm.get('email').errors?.email">
+      <span class="helper-text">Email entered is invalid</span>
+   </div>
+    </div>
+    <div class="w3-section">
+      <label for="message">Message</label>
+      <input class="w3-input w3-border" required name="Message" name="msg"
+      id="message" formControlName="message" required>
+    </div>
+    <button type="submit" class="w3-button w3-block w3-dark-grey"
+     id="submit" [disabled]="ourForm.invalid"  (click)="submitData(ourForm.value)">Send</button>
+  </form><br>
+</div>
+</div>
